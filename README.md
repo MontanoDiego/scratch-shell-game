@@ -8,7 +8,8 @@
 - reset visuals
 - increase guess total
 - generate random object location
-- take location and reveal to image
+- take location and change correct selection to new image
+- change wrong selections to new image
 - add win notification
 - increment wins on correct userGuess
 - display game stats in results

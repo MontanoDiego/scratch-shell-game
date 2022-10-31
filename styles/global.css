@@ -1,13 +1,14 @@
 :root {
-    --background: rgb(255, 255, 255);
-    --header-background: rgb(254, 251, 245);
+    --background: rgb(0, 0, 0);
+    --header-background: rgb(0, 0, 0);
     --primary-font: Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans',
         'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
 }
 
 body {
-    font-family: var(--primary-font);
+    font-family: var(verdana);
     background: var(--background);
+    color: white;
     display: grid;
     grid-template-rows: auto 1fr;
 }
@@ -17,5 +18,35 @@ header {
 }
 
 main {
-    padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+
+section {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mask-img {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+}
+
+.masks {
+    height: 300px;
+    display: flex;
+}
+
+.mask {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
