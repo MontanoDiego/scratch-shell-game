@@ -1,6 +1,7 @@
 /* Imports */
 
 /* Get DOM Elements */
+
 const oneButton = document.getElementById('one-doom');
 const twoButton = document.getElementById('two-doom');
 const threeButton = document.getElementById('three-doom');
@@ -14,24 +15,82 @@ const winsElement = document.getElementById('wins');
 const lossElement = document.getElementById('losses');
 
 const beerImage = './assets/one_Beer.png';
-var maskImage = document.getElementById('img-one');
+const maskImage = './assets/MFDOOM.png';
+let maskImageOne = document.getElementById('img-one');
+let maskImageTwo = document.getElementById('img-two');
+let maskImageThree = document.getElementById('img-three');
 
 /* State */
-const options = ['one', 'two', 'three'];
 
+const options = [maskImageOne, maskImageTwo, maskImageThree];
 
 let oneBeer = 0;
 let totalGuess = 0;
+
 /* Events */
+
+oneButton.addEventListener('click', () => {
+    const beer = Math.floor(Math.random() * 3);
+    const answer = options[beer];
+    // need guess handler
+    handleGuess(answer, maskImageOne);
+});
+
+twoButton.addEventListener('click', () => {
+    const beer = Math.floor(Math.random() * 3);
+    const answer = options[beer];
+    // need guess handler
+    handleGuess(answer, maskImageTwo);
+});
+
+threeButton.addEventListener('click', () => {
+    const beer = Math.floor(Math.random() * 3);
+    const answer = options[beer];
+    // need guess handler
+    handleGuess(answer, maskImageThree);
+});
+
+
+// GUESS HANDLER
+
+function handleGuess(correctAnswer, guess) {
+    //reset images
+    maskReset();
+    // increment
+    totalGuess++;
+    // uhhhhhhhhhhhhhhhhhh
+    if (correctAnswer === maskImageOne) {
+        maskImageOne.src = beerImage;
+    } else if (correctAnswer === maskImageTwo) {
+        maskImageTwo.src = beerImage;
+    } else {
+        maskImageThree.src = beerImage;
+    }
+    // correct
+    if (correctAnswer === guess) {
+        oneBeer++;
+    }
+    // shows results
+    displayResult();
+}
+
 
 /* Display Functions */
 
-function displayBeer() {
-    console.log('click');
-    maskImage.src = beerImage;
+// TEST changes image from default to beer
+// function displayBeer() {
+//     maskImageOne.src = beerImage;
+// }
+
+function displayResult() {
+    totalElement.textContent = totalGuess;
+    winsElement.textContent = oneBeer;
+    lossElement.textContent = totalGuess - oneBeer;
 }
 
-oneButton.addEventListener('click', () => {
-    displayBeer();
-});
-
+// resets all masks back to default image
+function maskReset() {
+    maskImageOne.src = maskImage;
+    maskImageTwo.src = maskImage;
+    maskImageThree.src = maskImage;
+}
