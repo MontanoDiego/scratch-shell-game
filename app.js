@@ -5,6 +5,7 @@
 const oneButton = document.getElementById('one-doom');
 const twoButton = document.getElementById('two-doom');
 const threeButton = document.getElementById('three-doom');
+const resetButton = document.getElementById('reset-button');
 
 const containerOne = document.getElementById('container-one');
 const containerTwo = document.getElementById('container-two');
@@ -94,3 +95,10 @@ function maskReset() {
     maskImageTwo.src = maskImage;
     maskImageThree.src = maskImage;
 }
+
+resetButton.addEventListener('click', () => {
+    maskReset();
+    oneBeer = 0;
+    totalGuess = 0;
+    displayResult();
+});

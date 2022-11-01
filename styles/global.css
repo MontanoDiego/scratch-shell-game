@@ -54,3 +54,8 @@ section {
 .reveal {
     display: none;
 }
+
+#reset-button {
+    margin: 20px;
+    
+}
