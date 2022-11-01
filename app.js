@@ -21,9 +21,23 @@ let maskImageOne = document.getElementById('img-one');
 let maskImageTwo = document.getElementById('img-two');
 let maskImageThree = document.getElementById('img-three');
 
+// get for medium difficulty
+let maskImageFour = document.getElementById('img-four');
+
+
+
+// drop down
+const difficultySelector = document.getElementById('difficulty-selector');
+
+const easyDrop = document.getElementById('easy-select');
+const mediumDrop = document.getElementById('medium-select');
+const hardDrop = document.getElementById('hard-select');
+
 /* State */
 
 const options = [maskImageOne, maskImageTwo, maskImageThree];
+// options for medium difficulty
+const optionsMed = [maskImageOne, maskImageTwo, maskImageThree, maskImageFour];
 
 let oneBeer = 0;
 let totalGuess = 0;
@@ -50,6 +64,8 @@ threeButton.addEventListener('click', () => {
     // need guess handler
     handleGuess(answer, maskImageThree);
 });
+
+// DIFFICULTY DROP DOWN
 
 
 // GUESS HANDLER
@@ -102,3 +118,9 @@ resetButton.addEventListener('click', () => {
     totalGuess = 0;
     displayResult();
 });
+
+// hiding test function for difficulty dropdown
+function hideMask() {
+    maskImageFour.classList.remove('mask-img');
+    maskImageFour.classList.add('hide');
+}

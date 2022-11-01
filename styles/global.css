@@ -51,11 +51,11 @@ section {
     flex-direction: column;
 }
 
-.reveal {
+.hide {
     display: none;
 }
 
 #reset-button {
     margin: 20px;
-    
+
 }
