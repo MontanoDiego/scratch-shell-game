@@ -213,24 +213,24 @@ resetButton.addEventListener('click', () => {
 // hiding function for HARD buttons
 function hardButtons() {
     // unhides hard buttons
-    maskBtnOneHard.classList.remove('hide');
-    maskBtnTwoHard.classList.remove('hide');
-    maskBtnThreeHard.classList.remove('hide');
-    maskBtnFourHard.classList.remove('hide');
-    maskBtnFiveHard.classList.remove('hide');
+    maskBtnOneHard.classList.toggle('hide');
+    maskBtnTwoHard.classList.toggle('hide');
+    maskBtnThreeHard.classList.toggle('hide');
+    maskBtnFourHard.classList.toggle('hide');
+    maskBtnFiveHard.classList.toggle('hide');
     // hides easy buttons
-    oneButton.classList.add('hide');
-    twoButton.classList.add('hide');
-    threeButton.classList.add('hide');
+    oneButton.classList.toggle('hide');
+    twoButton.classList.toggle('hide');
+    threeButton.classList.toggle('hide');
 }
 
 // hiding function for HARD images
 function hardImages() {
     // unhides HARD containers
-    hardContainerFour.classList.remove('hide');
-    hardContainerFour.classList.add('mask');
-    hardContainerFive.classList.remove('hide');
-    hardContainerFive.classList.add('mask');
+    hardContainerFour.classList.toggle('hide');
+    hardContainerFour.classList.toggle('mask');
+    hardContainerFive.classList.toggle('hide');
+    hardContainerFive.classList.toggle('mask');
 }
 
 // debugButton.addEventListener('click', () => {
