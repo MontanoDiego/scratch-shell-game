@@ -1,7 +1,7 @@
 /* Imports */
 
 /* Get DOM Elements */
-
+const debugButton = document.getElementById('test');
 
 //get for EASY buttons
 const oneButton = document.getElementById('one-doom');
@@ -11,9 +11,8 @@ const threeButton = document.getElementById('three-doom');
 const resetButton = document.getElementById('reset-button');
 
 // get for containers
-// const containerOne = document.getElementById('container-one');
-// const containerTwo = document.getElementById('container-two');
-// const containerThree = document.getElementById('container-three');
+const hardContainerFour = document.getElementById('container-four');
+const hardContainerFive = document.getElementById('container-five');
 
 // get for score elements
 const totalElement = document.getElementById('total');
@@ -34,7 +33,7 @@ let maskImageFour = document.getElementById('img-four');
 let maskImageFive = document.getElementById('img-five');
 
 // get for hard difficulty buttons
-let makeBtnOneHard = document.getElementById('one-doom-hard');
+let maskBtnOneHard = document.getElementById('one-doom-hard');
 let maskBtnTwoHard = document.getElementById('two-doom-hard');
 let maskBtnThreeHard = document.getElementById('three-doom-hard');
 let maskBtnFourHard = document.getElementById('four-doom');
@@ -54,7 +53,7 @@ const hardDrop = document.getElementById('hard-select');
 
 const options = [maskImageOne, maskImageTwo, maskImageThree];
 // options for medium difficulty
-const optionsMed = [maskImageOne, maskImageTwo, maskImageThree, maskImageFour];
+const optionsHard = [maskImageOne, maskImageTwo, maskImageThree, maskImageFour, maskImageFive];
 
 let oneBeer = 0;
 let totalGuess = 0;
@@ -64,6 +63,7 @@ let totalGuess = 0;
 
 /* Events */
 
+// EASY buttons
 oneButton.addEventListener('click', () => {
     const beer = Math.floor(Math.random() * 3);
     const answer = options[beer];
@@ -86,9 +86,49 @@ threeButton.addEventListener('click', () => {
 });
 
 
+// HARD buttons
+
+maskBtnOneHard.addEventListener('click', () => {
+    const beer = Math.floor(Math.random() * 5);
+    const answer = optionsHard[beer];
+    handleGuessHard(answer, maskImageOne);
+});
+
+maskBtnTwoHard.addEventListener('click', () => {
+    const beer = Math.floor(Math.random() * 5);
+    const answer = optionsHard[beer];
+    handleGuessHard(answer, maskImageTwo);
+});
+
+maskBtnThreeHard.addEventListener('click', () => {
+    const beer = Math.floor(Math.random() * 5);
+    const answer = optionsHard[beer];
+    handleGuessHard(answer, maskImageThree);
+});
+
+maskBtnFourHard.addEventListener('click', () => {
+    const beer = Math.floor(Math.random() * 5);
+    const answer = optionsHard[beer];
+    handleGuessHard(answer, maskImageFour);
+});
+
+maskBtnFiveHard.addEventListener('click', () => {
+    const beer = Math.floor(Math.random() * 5);
+    const answer = optionsHard[beer];
+    handleGuessHard(answer, maskImageFive);
+});
+
 
 // DIFFICULTY DROP DOWN
 
+difficultySelector.addEventListener('change', () => {
+    maskReset();
+    oneBeer = 0;
+    totalGuess = 0;
+    displayResult();
+    hardButtons();
+    hardImages();
+});
 
 
 
@@ -117,6 +157,32 @@ function handleGuess(correctAnswer, guess) {
 }
 
 
+// HARD GUESS HANDLER
+
+function handleGuessHard(correctAnswer, guess) {
+    //reset images
+    maskReset();
+    // increment
+    totalGuess++;
+    // uhhhhhhhhhhhhhhhhhh
+    if (correctAnswer === maskImageOne) {
+        maskImageOne.src = beerImage;
+    } else if (correctAnswer === maskImageTwo) {
+        maskImageTwo.src = beerImage;
+    } else if (correctAnswer === maskImageThree) {
+        maskImageThree.src = beerImage;
+    } else if (correctAnswer === maskImageFour) {
+        maskImageFour.src = beerImage;
+    } else {
+        maskImageFive.src = beerImage;
+    }
+    // correct
+    if (correctAnswer === guess) {
+        oneBeer++;
+    }
+    // shows results
+    displayResult();
+}
 
 
 /* Display Functions */
@@ -132,6 +198,8 @@ function maskReset() {
     maskImageOne.src = maskImage;
     maskImageTwo.src = maskImage;
     maskImageThree.src = maskImage;
+    maskImageFour.src = maskImage;
+    maskImageFive.src = maskImage;
 }
 
 // resets score values and mask images
@@ -144,5 +212,29 @@ resetButton.addEventListener('click', () => {
 
 // hiding function for HARD buttons
 function hardButtons() {
-    
+    // unhides hard buttons
+    maskBtnOneHard.classList.remove('hide');
+    maskBtnTwoHard.classList.remove('hide');
+    maskBtnThreeHard.classList.remove('hide');
+    maskBtnFourHard.classList.remove('hide');
+    maskBtnFiveHard.classList.remove('hide');
+    // hides easy buttons
+    oneButton.classList.add('hide');
+    twoButton.classList.add('hide');
+    threeButton.classList.add('hide');
 }
+
+// hiding function for HARD images
+function hardImages() {
+    // unhides HARD containers
+    hardContainerFour.classList.remove('hide');
+    hardContainerFour.classList.add('mask');
+    hardContainerFive.classList.remove('hide');
+    hardContainerFive.classList.add('mask');
+}
+
+// debugButton.addEventListener('click', () => {
+//     hardButtons();
+//     hardImages();
+//     console.log('debug');
+// });
