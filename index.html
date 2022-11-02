@@ -26,12 +26,57 @@
 
 <body>
     <header>
-        <img class="logo" src="assets/html_css_js.png" alt="logo">
-        <h1>Web App</h1>
+        <h1>DOOM</h1>
     </header>
 
     <main>
+        <section id="difficulty">
+                <p>DIFFICULTY</p>
+                <select id="difficulty-selector">
+                    <option id="easy-select">EASY</option>
+                    <option id="hard-select">HARD</option>
+                </select>
+        </section>
+        <section class="what-Doom">
+            <h2>
+                Which DOOM?
+            </h2>
+            <div class="masks">
+                <div id="container-one" class="mask">
+                    <img id="img-one" src='./assets/MFDOOM.png' class="mask-img" />
+                    <button id="one-doom">1</button>
+                    <button id="one-doom-hard" class="hide">1</button>
+                </div>
+                <div id="container-two" class="mask">
+                    <img id="img-two" src="./assets/MFDOOM.png" class="mask-img" />
+                    <button id="two-doom">2</button>
+                    <button id="two-doom-hard" class="hide">2</button>
+                </div>
+                <div id="container-three" class="mask">
+                    <img id="img-three" src="./assets/MFDOOM.png" class="mask-img" />
+                    <button id="three-doom">3</button>
+                    <button id="three-doom-hard" class="hide">3</button>
+                </div>
 
+
+
+
+                <div id="container-four" class="hide">
+                    <img id="img-four" src="./assets/MFDOOM.png" class="mask-img" />
+                    <button id="four-doom" class="hide">4</button>
+                </div>
+                <div id="container-five" class="hide">
+                    <img id="img-five" src="./assets/MFDOOM.png" class="mask-img" />
+                    <button id="five-doom" class="hide">5</button>
+                </div>
+            </div>
+            <div>You found one beer <span id="wins">0</span> times</div>
+            <div>and went sober <span id="losses">0</span> times</div>
+            <div>out of</div>
+            <div> <span id="total">0</span> guesses</div>
+            <button id="reset-button">¿another beer?</button>
+            <!-- <button id="test">DEBUG</button> -->
+        </section>
     </main>
 
 </body>
