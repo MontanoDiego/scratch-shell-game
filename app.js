@@ -2,36 +2,53 @@
 
 /* Get DOM Elements */
 
+
+//get for EASY buttons
 const oneButton = document.getElementById('one-doom');
 const twoButton = document.getElementById('two-doom');
 const threeButton = document.getElementById('three-doom');
+// reset button
 const resetButton = document.getElementById('reset-button');
 
-const containerOne = document.getElementById('container-one');
-const containerTwo = document.getElementById('container-two');
-const containerThree = document.getElementById('container-three');
+// get for containers
+// const containerOne = document.getElementById('container-one');
+// const containerTwo = document.getElementById('container-two');
+// const containerThree = document.getElementById('container-three');
 
+// get for score elements
 const totalElement = document.getElementById('total');
 const winsElement = document.getElementById('wins');
 const lossElement = document.getElementById('losses');
 
+// get for asset images
 const beerImage = './assets/one_Beer.png';
 const maskImage = './assets/MFDOOM.png';
+
+// get for images
 let maskImageOne = document.getElementById('img-one');
 let maskImageTwo = document.getElementById('img-two');
 let maskImageThree = document.getElementById('img-three');
 
-// get for medium difficulty
+// get for hard difficulty images
 let maskImageFour = document.getElementById('img-four');
+let maskImageFive = document.getElementById('img-five');
 
+// get for hard difficulty buttons
+let makeBtnOneHard = document.getElementById('one-doom-hard');
+let maskBtnTwoHard = document.getElementById('two-doom-hard');
+let maskBtnThreeHard = document.getElementById('three-doom-hard');
+let maskBtnFourHard = document.getElementById('four-doom');
+let maskBtnFiveHard = document.getElementById('five-doom');
 
 
 // drop down
 const difficultySelector = document.getElementById('difficulty-selector');
 
 const easyDrop = document.getElementById('easy-select');
-const mediumDrop = document.getElementById('medium-select');
 const hardDrop = document.getElementById('hard-select');
+
+
+
 
 /* State */
 
@@ -41,6 +58,9 @@ const optionsMed = [maskImageOne, maskImageTwo, maskImageThree, maskImageFour];
 
 let oneBeer = 0;
 let totalGuess = 0;
+
+
+
 
 /* Events */
 
@@ -65,7 +85,12 @@ threeButton.addEventListener('click', () => {
     handleGuess(answer, maskImageThree);
 });
 
+
+
 // DIFFICULTY DROP DOWN
+
+
+
 
 
 // GUESS HANDLER
@@ -92,12 +117,9 @@ function handleGuess(correctAnswer, guess) {
 }
 
 
-/* Display Functions */
 
-// TEST changes image from default to beer
-// function displayBeer() {
-//     maskImageOne.src = beerImage;
-// }
+
+/* Display Functions */
 
 function displayResult() {
     totalElement.textContent = totalGuess;
@@ -112,6 +134,7 @@ function maskReset() {
     maskImageThree.src = maskImage;
 }
 
+// resets score values and mask images
 resetButton.addEventListener('click', () => {
     maskReset();
     oneBeer = 0;
@@ -119,8 +142,7 @@ resetButton.addEventListener('click', () => {
     displayResult();
 });
 
-// hiding test function for difficulty dropdown
-function hideMask() {
-    maskImageFour.classList.remove('mask-img');
-    maskImageFour.classList.add('hide');
+// hiding function for HARD buttons
+function hardButtons() {
+    
 }
